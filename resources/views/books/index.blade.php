@@ -24,11 +24,11 @@
                         <td>{{ $book->author }}</td>
                         <td>{{ $book->stock }}</td>
                         <td>
-                            <a href="{{ route('books.edit', $book->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            {{-- <a href="{{ route('books.edit', $book->id) }}" class="btn btn-sm btn-warning">Edit</a> --}}
                             <form action="{{ route('books.destroy', $book->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                <button type="submit" class="btn btn-sm btn-danger bg-red-600 text-white px-1 py-1 rounded">Hapus</button>
                             </form>
                         </td>
                     </tr>

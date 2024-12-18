@@ -18,12 +18,12 @@
                 @foreach ($returnings as $returning)
                     <tr>
                         <td>{{ $returning->borrowing->book->title }} oleh {{ $returning->borrowing->student->name }}</td>
-                        <td>{{ $returning->returned_at->format('d-m-Y') }}</td>
+                        <td>{{ $returning->borrowing->borrowed_at}}</td>
                         <td>
                             <form action="{{ route('returnings.destroy', $returning->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="submit" class="bg-red-600 text-white px-1 py-1">Hapus</button>
                             </form>
                         </td>
                     </tr>

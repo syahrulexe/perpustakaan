@@ -20,11 +20,11 @@
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->nis }}</td>
                         <td>
-                            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning">Edit</a>
+                            {{-- <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning">Edit</a> --}}
                             <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                <button type="submit" class="bg-red-600 text-white  rounded">Hapus</button>
                             </form>
                         </td>
                     </tr>

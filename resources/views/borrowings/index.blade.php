@@ -31,17 +31,15 @@
                             <td>{{ $index + 1 }}</td>
                             <td>{{ $borrowing->book->title }}</td>
                             <td>{{ $borrowing->student->name }}</td>
-                            <td>{{ $borrowing->borrowed_at->format('d-m-Y') }}</td>
-                            <td>{{ $borrowing->due_date->format('d-m-Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($borrowing->borrowed_at)->format('d-m-Y') }}</td>
+                            <td>{{ \Carbon\Carbon::parse($borrowing->due_date)->format('d-m-Y') }}</td>
                             <td>
-                                <a href="{{ route('borrowings.edit', $borrowing->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="bi bi-pencil"></i> Edit
-                                </a>
+                                {{-- <a href="{{ route('borrowings.edit', $borrowing->id) }}" class="btn btn-sm btn-warning">  Edit
+                                </a> --}}
                                 <form action="{{ route('borrowings.destroy', $borrowing->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
-                                        <i class="bi bi-trash"></i> Hapus
+                                    <button type="submit" class=" bg-red-600 text-white px-1 py-1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');"> Hapus
                                     </button>
                                 </form>
                             </td>
